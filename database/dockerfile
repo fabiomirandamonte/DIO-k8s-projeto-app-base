@@ -1,0 +1,10 @@
+FROM mysql:latest
+
+WORKDIR /var/lib/mysql/
+ENV MYSQL_ROOT_PASSWORD=123456
+ENV MYSQL_DATABASE=meubanco
+
+# Esse ADD é para informar que quando for criar o banco de dados já crie a tabela automaticamente
+
+ADD sql.sql /docker-entrypoint-initdb.d
+EXPOSE 3306
